@@ -1,12 +1,23 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:layout_height="fill_parent" >
 
-    <Button 
+    <ImageView
         android:id="@+id/btn"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="XZ\nLP"
-        android:layout_gravity="center_horizontal"/>
-</LinearLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8.0dip"
+        android:background="@drawable/logo_flickr" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2.0dip"
+        android:text="锁屏"
+        android:textColor="#ffffffff" />
+
+</RelativeLayout>
