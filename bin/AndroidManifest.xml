@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lockscreen"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.lockscreen.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+                <activity
+            android:name="com.lockscreen.LockScreen$Controller"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoDisplay">
+        </activity>
+        <receiver android:name="com.lockscreen.LockScreen"
+                android:permission="android.permission.BIND_DEVICE_ADMIN"> 
+            <meta-data android:name="android.app.device_admin"
+                       android:resource="@xml/device_admin_sample" /> 
+            <intent-filter> 
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" /> 
+            </intent-filter> 
+        </receiver>
+        <receiver android:name="com.lockscreen.MyWidget">
+            <intent-filter >  
+<!--                 系统发出的广播 -->  
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />  
+<!--                 程序发出的广播 -->  
+                <action android:name="com.lockscreen.MyWidget"/>  
+            </intent-filter>  
+            <meta-data  
+                android:name="android.appwidget.provider"  
+                android:resource="@xml/appwidgetinfo"  
+                />  
+        </receiver>
+    </application>
+
+</manifest>
